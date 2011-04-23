@@ -1100,6 +1100,7 @@ public final class Launcher extends Activity
             appSearchData, globalSearch);
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (isWorkspaceLocked()) {
@@ -1180,7 +1181,7 @@ public final class Launcher extends Activity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    } */
 
     /**
      * Indicates that we want global search for this activity by setting the globalSearch

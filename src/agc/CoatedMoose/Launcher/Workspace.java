@@ -406,11 +406,13 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
         }
     }
 
-    /**
+    /*
      * Registers the specified listener on each screen contained in this workspace.
      *
      * @param l The listener used to respond to long clicks.
      */
+    /*
+     * AGC: disabled to prevent longclicks opening... anything really
     @Override
     public void setOnLongClickListener(OnLongClickListener l) {
         mLongClickListener = l;
@@ -418,7 +420,7 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
         for (int i = 0; i < count; i++) {
             getChildAt(i).setOnLongClickListener(l);
         }
-    }
+    } */
 
     private void updateWallpaperOffset() {
         updateWallpaperOffset(getChildAt(getChildCount() - 1).getRight() - (mRight - mLeft));

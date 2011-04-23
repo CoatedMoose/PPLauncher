@@ -52,7 +52,8 @@
         launcher:ignoreZone="56dip"
 
         android:focusable="true"
-        android:clickable="true" />
+        android:clickable="true" 
+        android:visibility="invisible" />
 
     <agc.CoatedMoose.Launcher.ClippedImageView
         android:id="@+id/next_screen"
@@ -69,7 +70,8 @@
         launcher:ignoreZone="-56dip"
         
         android:focusable="true"
-        android:clickable="true" />
+        android:clickable="true" 
+        android:visibility="invisible" />
 
     <agc.CoatedMoose.Launcher.DeleteZone
         android:id="@+id/delete_zone"
@@ -91,6 +93,7 @@
         android:layout_width="@dimen/button_bar_height_portrait"
         android:layout_gravity="right|center_vertical"
         android:layout_marginBottom="@dimen/half_status_bar_height"
+        android:visibility="invisible"
         >
 
         <agc.CoatedMoose.Launcher.HandleView
@@ -123,5 +126,5 @@
             android:onClick="launchHotSeat"
             />
 
-    </RelativeLayout>
+    </RelativeLayout> 
 </agc.CoatedMoose.Launcher.DragLayer>
