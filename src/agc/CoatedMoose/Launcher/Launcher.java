@@ -18,6 +18,7 @@ package agc.CoatedMoose.Launcher;
 
 import com.android.common.Search;
 
+import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -31,6 +32,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.Intent.ShortcutIconResource;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
@@ -99,7 +101,7 @@ public final class Launcher extends Activity
     static final boolean DEBUG_WIDGETS = false;
     static final boolean DEBUG_USER_INTERFACE = false;
 
-    private static final int WALLPAPER_SCREENS_SPAN = 2;
+    private static final int WALLPAPER_SCREENS_SPAN = 1;
 
     private static final int MENU_GROUP_ADD = 1;
     private static final int MENU_GROUP_WALLPAPER = MENU_GROUP_ADD + 1;
@@ -262,6 +264,21 @@ public final class Launcher extends Activity
 
         IntentFilter filter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         registerReceiver(mCloseSystemDialogsReceiver, filter);
+    }
+    
+    /**
+     * Set the wallpaper to the default for this application
+     * AGC added this. Did not finish...
+     */
+    public void setMyWallpaper(Context context) {
+    	SharedPreferences sp = context.getSharedPreferences("FirstRun", Context.MODE_PRIVATE);
+    	if (sp == null) {
+    		WallpaperManager wpm = (WallpaperManager)getSystemService(WALLPAPER_SERVICE);
+    		wpm.setResource(R.drawable.prof_perf_wallpaper);
+    		SharedPreferences.Editor editor = sp.edit();
+    		editor.putBoolean("i_already_ran", true);
+    		editor.commit();
+    	}
     }
 
     private void checkForLocaleChange() {
