@@ -18,7 +18,6 @@ package agc.CoatedMoose.Launcher;
 
 import com.android.common.Search;
 
-import android.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -101,7 +100,7 @@ public final class Launcher extends Activity
     static final boolean DEBUG_WIDGETS = false;
     static final boolean DEBUG_USER_INTERFACE = false;
 
-    private static final int WALLPAPER_SCREENS_SPAN = 1;
+    private static final int WALLPAPER_SCREENS_SPAN = 2;
 
     private static final int MENU_GROUP_ADD = 1;
     private static final int MENU_GROUP_WALLPAPER = MENU_GROUP_ADD + 1;
@@ -249,6 +248,7 @@ public final class Launcher extends Activity
 
         mSavedState = savedInstanceState;
         restoreState(mSavedState);
+        setMyWallpaper(this);
 
         if (PROFILE_STARTUP) {
             android.os.Debug.stopMethodTracing();
@@ -271,13 +271,19 @@ public final class Launcher extends Activity
      * AGC added this. Did not finish...
      */
     public void setMyWallpaper(Context context) {
+    	// Log.e("Andrew", "Running my method");
     	SharedPreferences sp = context.getSharedPreferences("FirstRun", Context.MODE_PRIVATE);
-    	if (sp == null) {
+    	if (!sp.getBoolean("i_already_ran", false)) {
+    		// Log.e("Andrew", "Setting wallpaper...");
     		WallpaperManager wpm = (WallpaperManager)getSystemService(WALLPAPER_SERVICE);
+    		try {
     		wpm.setResource(R.drawable.prof_perf_wallpaper);
     		SharedPreferences.Editor editor = sp.edit();
     		editor.putBoolean("i_already_ran", true);
     		editor.commit();
+    		} catch (IOException e) {
+    			Log.e("Andrew", "Failed to set prof_perf_wallpaper. Error: " + e);
+    		}
     	}
     }
 
