@@ -17,7 +17,7 @@
 <favorites xmlns:launcher="http://schemas.android.com/apk/res/agc.CoatedMoose.Launcher">
 
     <favorite
-        launcher:packageName="com.android.email"
+        launcher:packageName="com.google.android.email"
         launcher:className="com.android.email.activity.Welcome"
         launcher:screen="0"
         launcher:x="2"
@@ -31,8 +31,8 @@
         launcher:y="3" />
         
     <favorite
-        launcher:packageName="com.CoatedMoose.ProSales"
-        launcher:className="com.CoatedMoose.ProSales.WebPortal"
+        launcher:packageName="agc.CoatedMoose.ProSales"
+        launcher:className="agc.CoatedMoose.ProSales.WebPortal"
         launcher:screen="0"
         launcher:x="3"
         launcher:y="2" />
@@ -73,7 +73,7 @@
         launcher:y="3" />
     
     <favorite
-        launcher:packageName="com.android.camera"
+        launcher:packageName="com.google.android.camera"
         launcher:className="com.android.camera.Camera"
         launcher:screen="0"
         launcher:x="3"
